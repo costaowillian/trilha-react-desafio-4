@@ -6,6 +6,7 @@ import * as yup from "yup";
 
 import { Container, LoginContainer, Column, Spacing, Title } from "./styles";
 import { defaultValues, IFormLogin } from "./types";
+import { ButtonFalse } from "../../components/Button/styles";
 
 const schema = yup
   .object({
@@ -49,7 +50,7 @@ const Login = () => {
             errorMessage={errors?.password?.message}
           />
           <Spacing />
-          <Button title="Entrar" />
+          {isValid ? <Button title="Entrar" disabled={!isValid}/> : <ButtonFalse>Entrar</ButtonFalse>}
         </Column>
       </LoginContainer>
     </Container>
